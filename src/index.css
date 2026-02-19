@@ -1,14 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Substituímos a Inter pela Montserrat como fonte principal */
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-serif: "Playfair Display", serif;
 }
 
 @layer base {
   body {
     @apply antialiased;
+    /* Aplica o degradê de Laranja para Roxo no fundo de todo o site */
+    background: linear-gradient(135deg, #ff8c00, #800080);
+    min-height: 100vh;
+    color: white; /* Ajustei para branco para contrastar com o fundo escuro */
   }
 }
