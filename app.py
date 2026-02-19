@@ -6,7 +6,7 @@ import time
 import io
 
 st.set_page_config(page_title="Athalaia Sales Intelligence", layout="wide")
-st.title("🕵️ Athalaia: Inteligência Comercial Híbrida")
+st.title("✅ Athalaia: Lista inteligente")
 
 with st.sidebar:
     st.header("⚙️ Configuração")
