@@ -183,16 +183,16 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#E4E3E0] text-[#141414] font-sans selection:bg-[#141414] selection:text-[#E4E3E0]">
+    <div className="min-h-screen bg-gradient-to-br from-orange-500 to-purple-700 text-[#141414] font-sans selection:bg-[#141414] selection:text-[#E4E3E0]">
       {/* Header */}
-      <header className="border-b border-[#141414] px-6 py-4 flex items-center justify-between sticky top-0 bg-[#E4E3E0]/80 backdrop-blur-md z-10">
+      <header className="border-b border-white/20 px-6 py-4 flex items-center justify-between sticky top-0 bg-black/20 backdrop-blur-md z-10">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-[#141414] flex items-center justify-center rounded-sm">
-            <Database className="text-[#E4E3E0] w-5 h-5" />
+          <div className="w-8 h-8 bg-white flex items-center justify-center rounded-sm">
+            <Database className="text-purple-700 w-5 h-5" />
           </div>
           <div>
-            <h1 className="font-serif italic text-xl tracking-tight leading-none">Athalaia OSINT</h1>
-            <p className="text-[10px] uppercase tracking-widest opacity-50 font-mono mt-1">Investigação & Inteligência Comercial</p>
+            <h1 className="font-serif italic text-xl tracking-tight leading-none text-white">LDR_Flá_eriquece_AI</h1>
+            <p className="text-[10px] uppercase tracking-widest opacity-70 font-mono mt-1 text-white">Investigação & Inteligência Comercial</p>
           </div>
         </div>
         
@@ -208,7 +208,7 @@ export default function App() {
           <label
             htmlFor="csv-import"
             className={cn(
-              "flex items-center gap-2 border border-[#141414] text-[#141414] px-4 py-2 rounded-sm hover:bg-[#141414] hover:text-[#E4E3E0] transition-all text-sm font-medium cursor-pointer",
+              "flex items-center gap-2 border border-white text-white px-4 py-2 rounded-sm hover:bg-white hover:text-purple-700 transition-all text-sm font-medium cursor-pointer",
               loading && "opacity-50 cursor-not-allowed"
             )}
           >
@@ -219,7 +219,7 @@ export default function App() {
             onClick={handleExportCSV}
             disabled={leads.length === 0 || loading}
             className={cn(
-              "flex items-center gap-2 border border-[#141414] text-[#141414] px-4 py-2 rounded-sm hover:bg-[#141414] hover:text-[#E4E3E0] transition-all text-sm font-medium disabled:opacity-30 disabled:cursor-not-allowed"
+              "flex items-center gap-2 border border-white text-white px-4 py-2 rounded-sm hover:bg-white hover:text-purple-700 transition-all text-sm font-medium disabled:opacity-30 disabled:cursor-not-allowed"
             )}
           >
             <ExternalLink size={16} />
@@ -227,7 +227,7 @@ export default function App() {
           </button>
           <button 
             onClick={() => setIsAdding(true)}
-            className="flex items-center gap-2 bg-[#141414] text-[#E4E3E0] px-4 py-2 rounded-sm hover:opacity-90 transition-opacity text-sm font-medium"
+            className="flex items-center gap-2 bg-white text-purple-700 px-4 py-2 rounded-sm hover:opacity-90 transition-opacity text-sm font-medium"
           >
             <Plus size={16} />
             <span>Nova Investigação</span>
@@ -237,28 +237,28 @@ export default function App() {
 
       <main className="flex h-[calc(100vh-73px)]">
         {/* Sidebar / List */}
-        <div className="w-1/3 border-r border-[#141414] overflow-y-auto bg-[#E4E3E0]">
-          <div className="p-4 border-b border-[#141414] sticky top-0 bg-[#E4E3E0] z-10">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 opacity-30 w-4 h-4" />
+        <div className="w-1/3 border-r border-white/20 overflow-y-auto bg-black/10 backdrop-blur-sm">
+          <div className="p-4 border-b border-white/20 sticky top-0 bg-black/20 z-10">
+            <div className="relative text-white">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 opacity-50 w-4 h-4" />
               <input 
                 type="text" 
                 placeholder="Filtrar investigações..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-transparent border border-[#141414]/20 rounded-sm py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-[#141414] transition-colors"
+                className="w-full bg-white/10 border border-white/20 rounded-sm py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-white transition-colors placeholder-white/50"
               />
             </div>
           </div>
 
-          <div className="divide-y divide-[#141414]/10">
+          <div className="divide-y divide-white/10">
             {filteredLeads.map((lead: any) => (
               <button
                 key={lead.id}
                 onClick={() => setSelectedLead(lead)}
                 className={cn(
-                  "w-full text-left p-4 transition-all hover:bg-[#141414] hover:text-[#E4E3E0] group relative",
-                  selectedLead?.id === lead.id && "bg-[#141414] text-[#E4E3E0]"
+                  "w-full text-left p-4 transition-all hover:bg-white/20 text-white group relative",
+                  selectedLead?.id === lead.id && "bg-white/20"
                 )}
               >
                 <div className="flex justify-between items-start mb-1">
@@ -281,7 +281,7 @@ export default function App() {
               </button>
             ))}
             {leads.length === 0 && (
-              <div className="p-12 text-center opacity-30">
+              <div className="p-12 text-center opacity-50 text-white">
                 <Database size={48} className="mx-auto mb-4" />
                 <p className="text-sm">Nenhuma investigação OSINT realizada.</p>
               </div>
@@ -290,14 +290,14 @@ export default function App() {
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto bg-[#E4E3E0] relative">
+        <div className="flex-1 overflow-y-auto bg-black/5 relative">
           {bulkProgress && (
-            <div className="sticky top-0 left-0 right-0 z-20 bg-[#141414] text-[#E4E3E0] px-6 py-2 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest">
+            <div className="sticky top-0 left-0 right-0 z-20 bg-purple-900 text-white px-6 py-2 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest">
               <div className="flex items-center gap-3 flex-1">
                 <span>Varredura OSINT em Lote: {bulkProgress.current} de {bulkProgress.total}</span>
                 <div className="flex-1 h-1 bg-white/20 rounded-full overflow-hidden max-w-md">
                   <motion.div 
-                    className="h-full bg-emerald-400"
+                    className="h-full bg-orange-400"
                     initial={{ width: 0 }}
                     animate={{ width: `${(bulkProgress.current / bulkProgress.total) * 100}%` }}
                   />
@@ -313,23 +313,23 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="p-8 max-w-5xl mx-auto"
+                className="p-8 max-w-5xl mx-auto text-white"
               >
                 <div className="flex justify-between items-start mb-12">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border bg-emerald-500/10 text-emerald-700 border-emerald-500/20">
+                      <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border bg-orange-500/20 text-orange-200 border-orange-500/30">
                         Investigação Validada
                       </span>
-                      <span className="text-[10px] font-mono opacity-40">OSINT Protocol • {new Date(selectedLead.created_at).toLocaleString('pt-BR')}</span>
+                      <span className="text-[10px] font-mono opacity-60">OSINT Protocol • {new Date(selectedLead.created_at).toLocaleString('pt-BR')}</span>
                     </div>
                     <h2 className="text-4xl font-serif italic tracking-tight mb-2">{selectedLead.empresa}</h2>
-                    <p className="text-lg opacity-60 font-medium italic">{selectedLead.nome_sobrenome} — {selectedLead.cargo}</p>
-                    <a href={selectedLead.site} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-700 hover:underline mt-2 inline-block">{selectedLead.site}</a>
+                    <p className="text-lg opacity-80 font-medium italic">{selectedLead.nome_sobrenome} — {selectedLead.cargo}</p>
+                    <a href={selectedLead.site} target="_blank" rel="noopener noreferrer" className="text-sm text-orange-200 hover:underline mt-2 inline-block">{selectedLead.site}</a>
                   </div>
                   <button 
                     onClick={() => deleteLead(selectedLead.id)}
-                    className="p-2 hover:bg-rose-500 hover:text-white rounded-sm transition-colors opacity-30 hover:opacity-100"
+                    className="p-2 hover:bg-red-500 hover:text-white rounded-sm transition-colors opacity-50 hover:opacity-100"
                   >
                     <Trash2 size={20} />
                   </button>
@@ -338,37 +338,37 @@ export default function App() {
                 <div className="grid grid-cols-3 gap-8 mb-12">
                   {/* Decisor & Empresa */}
                   <section className="col-span-1">
-                    <h4 className="font-mono text-[10px] uppercase tracking-widest opacity-40 mb-6 border-b border-[#141414]/10 pb-2">Perfil do Alvo</h4>
+                    <h4 className="font-mono text-[10px] uppercase tracking-widest opacity-60 mb-6 border-b border-white/20 pb-2">Perfil do Alvo</h4>
                     <div className="space-y-6">
                       <div className="flex gap-4">
-                        <div className="w-10 h-10 rounded-sm bg-[#141414]/5 flex items-center justify-center shrink-0">
+                        <div className="w-10 h-10 rounded-sm bg-white/10 flex items-center justify-center shrink-0">
                           <User size={18} />
                         </div>
                         <div>
                           <p className="text-sm font-bold">{selectedLead.nome_sobrenome}</p>
-                          <p className="text-xs opacity-60">{selectedLead.cargo}</p>
+                          <p className="text-xs opacity-80">{selectedLead.cargo}</p>
                         </div>
                       </div>
                       
                       <div className="space-y-2">
-                        <p className="text-[10px] font-mono uppercase opacity-40">Localização</p>
+                        <p className="text-[10px] font-mono uppercase opacity-60">Localização</p>
                         <p className="text-sm">{selectedLead.regioes_administrativas_cidade}, {selectedLead.estado} — {selectedLead.pais}</p>
                       </div>
 
                       <div className="space-y-2">
-                        <p className="text-[10px] font-mono uppercase opacity-40">Empresa</p>
+                        <p className="text-[10px] font-mono uppercase opacity-60">Empresa</p>
                         <p className="text-sm font-medium">{selectedLead.segmento}</p>
-                        <p className="text-xs opacity-60">{selectedLead.empresa_media_colaboradores} colaboradores (est.)</p>
+                        <p className="text-xs opacity-80">{selectedLead.empresa_media_colaboradores} colaboradores (est.)</p>
                       </div>
 
                       <div className="flex flex-col gap-2 pt-4">
                         {selectedLead.linkedin_contato && (
-                          <a href={selectedLead.linkedin_contato} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-700 hover:underline">
+                          <a href={selectedLead.linkedin_contato} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-orange-200 hover:underline">
                             <ExternalLink size={12} /> LinkedIn Decisor
                           </a>
                         )}
                         {selectedLead.linkedin_empresa && (
-                          <a href={selectedLead.linkedin_empresa} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-blue-700 hover:underline">
+                          <a href={selectedLead.linkedin_empresa} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-orange-200 hover:underline">
                             <ExternalLink size={12} /> LinkedIn Empresa
                           </a>
                         )}
@@ -378,18 +378,18 @@ export default function App() {
 
                   {/* E-mails */}
                   <section className="col-span-1">
-                    <h4 className="font-mono text-[10px] uppercase tracking-widest opacity-40 mb-6 border-b border-[#141414]/10 pb-2">Comunicação Digital</h4>
+                    <h4 className="font-mono text-[10px] uppercase tracking-widest opacity-60 mb-6 border-b border-white/20 pb-2">Comunicação Digital</h4>
                     <div className="space-y-4">
-                      <div className="p-3 rounded-sm border border-[#141414]/5 bg-white/50">
-                        <p className="text-[10px] font-mono uppercase opacity-40 mb-1">E-mail 1 (Prioridade)</p>
+                      <div className="p-3 rounded-sm border border-white/10 bg-black/20">
+                        <p className="text-[10px] font-mono uppercase opacity-60 mb-1">E-mail 1 (Prioridade)</p>
                         <p className="text-sm font-bold break-all">{selectedLead.email_1 || '---'}</p>
                       </div>
-                      <div className="p-3 rounded-sm border border-[#141414]/5 bg-white/50">
-                        <p className="text-[10px] font-mono uppercase opacity-40 mb-1">E-mail 2 (Alternativo)</p>
+                      <div className="p-3 rounded-sm border border-white/10 bg-black/20">
+                        <p className="text-[10px] font-mono uppercase opacity-60 mb-1">E-mail 2 (Alternativo)</p>
                         <p className="text-sm break-all">{selectedLead.email_2 || '---'}</p>
                       </div>
-                      <div className="p-3 rounded-sm border border-[#141414]/5 bg-white/50">
-                        <p className="text-[10px] font-mono uppercase opacity-40 mb-1">E-mail 3 (Geral)</p>
+                      <div className="p-3 rounded-sm border border-white/10 bg-black/20">
+                        <p className="text-[10px] font-mono uppercase opacity-60 mb-1">E-mail 3 (Geral)</p>
                         <p className="text-sm break-all">{selectedLead.email_3 || '---'}</p>
                       </div>
                     </div>
@@ -397,34 +397,34 @@ export default function App() {
 
                   {/* Telefones */}
                   <section className="col-span-1">
-                    <h4 className="font-mono text-[10px] uppercase tracking-widest opacity-40 mb-6 border-b border-[#141414]/10 pb-2">Pontos de Contato</h4>
+                    <h4 className="font-mono text-[10px] uppercase tracking-widest opacity-60 mb-6 border-b border-white/20 pb-2">Pontos de Contato</h4>
                     <div className="space-y-3">
-                      <div className="flex items-center justify-between text-sm p-2 border-b border-[#141414]/5">
-                        <span className="opacity-40 text-[10px] uppercase font-mono">WhatsApp</span>
-                        <span className="font-bold text-emerald-600">{selectedLead.whatsapp || '---'}</span>
+                      <div className="flex items-center justify-between text-sm p-2 border-b border-white/10">
+                        <span className="opacity-60 text-[10px] uppercase font-mono">WhatsApp</span>
+                        <span className="font-bold text-orange-300">{selectedLead.whatsapp || '---'}</span>
                       </div>
-                      <div className="flex items-center justify-between text-sm p-2 border-b border-[#141414]/5">
-                        <span className="opacity-40 text-[10px] uppercase font-mono">Telefone 1</span>
+                      <div className="flex items-center justify-between text-sm p-2 border-b border-white/10">
+                        <span className="opacity-60 text-[10px] uppercase font-mono">Telefone 1</span>
                         <span>{selectedLead.telefone_1 || '---'}</span>
                       </div>
-                      <div className="flex items-center justify-between text-sm p-2 border-b border-[#141414]/5">
-                        <span className="opacity-40 text-[10px] uppercase font-mono">Telefone 2</span>
+                      <div className="flex items-center justify-between text-sm p-2 border-b border-white/10">
+                        <span className="opacity-60 text-[10px] uppercase font-mono">Telefone 2</span>
                         <span>{selectedLead.telefone_2 || '---'}</span>
                       </div>
-                      <div className="flex items-center justify-between text-sm p-2 border-b border-[#141414]/5">
-                        <span className="opacity-40 text-[10px] uppercase font-mono">Lusha</span>
+                      <div className="flex items-center justify-between text-sm p-2 border-b border-white/10">
+                        <span className="opacity-60 text-[10px] uppercase font-mono">Lusha</span>
                         <span>{selectedLead.telefone_3_lusha || '---'}</span>
                       </div>
-                      <div className="flex items-center justify-between text-sm p-2 border-b border-[#141414]/5">
-                        <span className="opacity-40 text-[10px] uppercase font-mono">Apollo</span>
+                      <div className="flex items-center justify-between text-sm p-2 border-b border-white/10">
+                        <span className="opacity-60 text-[10px] uppercase font-mono">Apollo</span>
                         <span>{selectedLead.telefone_4_apollo || '---'}</span>
                       </div>
-                      <div className="flex items-center justify-between text-sm p-2 border-b border-[#141414]/5">
-                        <span className="opacity-40 text-[10px] uppercase font-mono">Google</span>
+                      <div className="flex items-center justify-between text-sm p-2 border-b border-white/10">
+                        <span className="opacity-60 text-[10px] uppercase font-mono">Google</span>
                         <span>{selectedLead.telefone_5_google || '---'}</span>
                       </div>
-                      <div className="flex items-center justify-between text-sm p-2 border-b border-[#141414]/5">
-                        <span className="opacity-40 text-[10px] uppercase font-mono">Assertiva</span>
+                      <div className="flex items-center justify-between text-sm p-2 border-b border-white/10">
+                        <span className="opacity-60 text-[10px] uppercase font-mono">Assertiva</span>
                         <span>{selectedLead.telefone_assertiva || '---'}</span>
                       </div>
                     </div>
@@ -433,39 +433,39 @@ export default function App() {
 
                 {/* Insights & Pitch */}
                 <div className="grid grid-cols-1 gap-8">
-                  <section className="p-6 rounded-sm bg-[#141414] text-[#E4E3E0]">
+                  <section className="p-6 rounded-sm bg-black/30 text-white">
                     <div className="flex items-center gap-2 mb-4">
-                      <TrendingUp size={18} className="text-emerald-400" />
+                      <TrendingUp size={18} className="text-orange-400" />
                       <h4 className="font-serif italic text-lg">Análise Crítica OSINT</h4>
                     </div>
-                    <p className="text-sm leading-relaxed opacity-80">{selectedLead.insight}</p>
+                    <p className="text-sm leading-relaxed opacity-90">{selectedLead.insight}</p>
                   </section>
 
-                  <section className="p-6 rounded-sm border-2 border-[#141414] bg-white">
+                  <section className="p-6 rounded-sm border-2 border-white/20 bg-black/10">
                     <div className="flex items-center gap-2 mb-4">
-                      <MessageSquare size={18} className="text-[#141414]" />
+                      <MessageSquare size={18} className="text-white" />
                       <h4 className="font-serif italic text-lg">Pitch de Alto Impacto</h4>
                     </div>
-                    <div className="p-4 bg-[#141414]/5 rounded-sm border-l-4 border-[#141414]">
-                      <p className="text-sm italic leading-relaxed text-[#141414]">"{selectedLead.sugestao_abordagem}"</p>
+                    <div className="p-4 bg-white/5 rounded-sm border-l-4 border-orange-500">
+                      <p className="text-sm italic leading-relaxed text-white">"{selectedLead.sugestao_abordagem}"</p>
                     </div>
                   </section>
 
-                  <section className="p-6 rounded-sm border border-[#141414]/10">
-                    <h4 className="font-mono text-[10px] uppercase tracking-widest opacity-40 mb-4">Dados de Origem</h4>
-                    <pre className="text-xs font-mono opacity-50 whitespace-pre-wrap bg-[#141414]/5 p-4 rounded-sm">
+                  <section className="p-6 rounded-sm border border-white/10">
+                    <h4 className="font-mono text-[10px] uppercase tracking-widest opacity-60 mb-4">Dados de Origem</h4>
+                    <pre className="text-xs font-mono opacity-70 whitespace-pre-wrap bg-black/20 p-4 rounded-sm">
                       {selectedLead.input_data}
                     </pre>
                   </section>
                 </div>
               </motion.div>
             ) : (
-              <div className="h-full flex flex-col items-center justify-center p-12 text-center">
-                <div className="w-24 h-24 rounded-full border border-[#141414]/10 flex items-center justify-center mb-6">
-                  <Building2 size={40} className="opacity-10" />
+              <div className="h-full flex flex-col items-center justify-center p-12 text-center text-white">
+                <div className="w-24 h-24 rounded-full border border-white/20 flex items-center justify-center mb-6">
+                  <Building2 size={40} className="opacity-50" />
                 </div>
                 <h3 className="font-serif italic text-2xl mb-2">Selecione uma investigação</h3>
-                <p className="text-sm opacity-40 max-w-xs">Escolha um lead na lista lateral para visualizar a varredura OSINT completa e inteligência de dados.</p>
+                <p className="text-sm opacity-70 max-w-xs">Escolha um lead na lista lateral para visualizar a varredura OSINT completa e inteligência de dados.</p>
               </div>
             )}
           </AnimatePresence>
@@ -487,11 +487,11 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-xl bg-[#E4E3E0] border border-[#141414] shadow-2xl rounded-sm overflow-hidden"
+              className="relative w-full max-w-xl bg-purple-900 text-white border border-white/20 shadow-2xl rounded-sm overflow-hidden"
             >
-              <div className="p-6 border-b border-[#141414]">
+              <div className="p-6 border-b border-white/20">
                 <h3 className="font-serif italic text-2xl">Novo Enriquecimento</h3>
-                <p className="text-xs opacity-50 mt-1">Insira os dados brutos do lead (Nome, Empresa, Site, etc.)</p>
+                <p className="text-xs opacity-70 mt-1">Insira os dados brutos do lead (Nome, Empresa, Site, etc.)</p>
               </div>
               
               <form onSubmit={handleEnrich} className="p-6">
@@ -499,7 +499,7 @@ export default function App() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ex: Construtora Tenda, João Silva, Diretor de Marketing..."
-                  className="w-full h-40 bg-white/50 border border-[#141414]/20 rounded-sm p-4 text-sm focus:outline-none focus:border-[#141414] transition-colors resize-none mb-6"
+                  className="w-full h-40 bg-white/10 border border-white/20 rounded-sm p-4 text-sm focus:outline-none focus:border-white transition-colors resize-none mb-6 placeholder-white/40 text-white"
                   disabled={loading}
                 />
                 
@@ -507,14 +507,14 @@ export default function App() {
                   <button 
                     type="button"
                     onClick={() => setIsAdding(false)}
-                    className="px-6 py-2 text-sm font-medium hover:underline"
+                    className="px-6 py-2 text-sm font-medium hover:underline text-white/70 hover:text-white"
                     disabled={loading}
                   >
                     Cancelar
                   </button>
                   <button 
                     type="submit"
-                    className="bg-[#141414] text-[#E4E3E0] px-8 py-2 rounded-sm hover:opacity-90 transition-all flex items-center gap-2 disabled:opacity-50"
+                    className="bg-orange-500 text-white px-8 py-2 rounded-sm hover:bg-orange-600 transition-all flex items-center gap-2 disabled:opacity-50"
                     disabled={loading || !input.trim()}
                   >
                     {loading ? (
@@ -536,20 +536,20 @@ export default function App() {
                 <div className="px-6 pb-6">
                   {bulkProgress ? (
                     <div className="space-y-2">
-                      <div className="flex justify-between text-[10px] font-mono uppercase opacity-50">
+                      <div className="flex justify-between text-[10px] font-mono uppercase opacity-70">
                         <span>Processando Lote...</span>
                         <span>{bulkProgress.current} / {bulkProgress.total}</span>
                       </div>
-                      <div className="w-full h-1 bg-[#141414]/10 rounded-full overflow-hidden">
+                      <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
                         <motion.div 
-                          className="h-full bg-[#141414]"
+                          className="h-full bg-orange-400"
                           initial={{ width: 0 }}
                           animate={{ width: `${(bulkProgress.current / bulkProgress.total) * 100}%` }}
                         />
                       </div>
                     </div>
                   ) : (
-                    <div className="bg-[#141414] text-[#E4E3E0] p-4 rounded-sm text-[10px] font-mono uppercase tracking-widest animate-pulse">
+                    <div className="bg-black/30 text-orange-200 p-4 rounded-sm text-[10px] font-mono uppercase tracking-widest animate-pulse">
                       Investigando base de dados, validando ICP e buscando contatos nominais...
                     </div>
                   )}
